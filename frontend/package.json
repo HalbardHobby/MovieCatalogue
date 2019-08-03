@@ -7,11 +7,19 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
+  "devDependencies": {
+    "copyfiles": "^2.1.1",
+    "renamer": "^1.1.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "collect": "react-scripts build && npm run copy-buildfiles && npm run collectstatic",
+    "copy-buildfiles": "copyfiles \"build/*\" \"../build\"",
+    "copy-build-logo": "copyfiles -f \"build/static/media/*\" \"../static/img/\"",
+    "collectstatic": "cd .. && python manage.py collectstatic --no-input"
   },
   "eslintConfig": {
     "extends": "react-app"
