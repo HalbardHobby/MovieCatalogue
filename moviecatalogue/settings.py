@@ -80,6 +80,33 @@ DATABASES = {
     }
 }
 
+# if os.getenv('GAE_APPLICATION', None):
+#     # Running on production App Engine, so connect to Google Cloud SQL using
+#     # the unix socket at /cloudsql/<your-cloudsql-connection string>
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'HOST': '/cloudsql/movie-catalogue-248623:us-east1:movie-db',
+#             'USER': 'test123',
+#             'PASSWORD': 'TDADch2dc6LfR@k',
+#             'NAME': 'movie-db',
+#         }
+#     }
+# else:
+#     # Running locally so connect to either a local MySQL instance or connect 
+#     # to Cloud SQL via the proxy.  To start the proxy via command line: 
+#     #    $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306 
+#     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'HOST': '127.0.0.1',
+#             'PORT': '3306',
+#             'NAME': 'movie-db',
+#             'USER': 'test123',
+#             'PASSWORD': 'TDADch2dc6LfR@k',
+#         }
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -117,4 +144,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
