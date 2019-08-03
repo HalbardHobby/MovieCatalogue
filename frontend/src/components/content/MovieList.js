@@ -9,6 +9,26 @@ const MovieList = () => {
 					<Card image='https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg'
 						title='Avengers: Endgame' />
 				</div>
+				<div className="col s6 m4 l3">
+					<Card image='https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg'
+						title='Avengers: Endgame' />
+				</div>
+				<div className="col s6 m4 l3">
+					<Card image='https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg'
+						title='Avengers: Endgame' />
+				</div>
+				<div className="col s6 m4 l3">
+					<Card image='https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg'
+						title='Avengers: Endgame' />
+				</div>
+				<div className="col s6 m4 l3">
+					<Card image='https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg'
+						title='Avengers: Endgame' />
+				</div>
+				<div className="col s6 m4 l3">
+					<Card image='https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg'
+						title='Avengers: Endgame' />
+				</div>
 			</div>
 		</div>
 	);
