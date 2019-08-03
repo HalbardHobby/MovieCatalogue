@@ -25,6 +25,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Frontend source
+frontend/
+
 # Python pycache:
 __pycache__/
 # Ignored by the build system

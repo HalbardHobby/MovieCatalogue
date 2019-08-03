@@ -8,8 +8,7 @@
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
-    "copyfiles": "^2.1.1",
-    "renamer": "^1.1.2"
+    "move-cli": "^1.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -17,8 +16,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "collect": "react-scripts build && npm run copy-buildfiles && npm run collectstatic",
-    "copy-buildfiles": "copyfiles \"build/*\" \"../build\"",
-    "copy-build-logo": "copyfiles -f \"build/static/media/*\" \"../static/img/\"",
+    "copy-buildfiles": "move-cli -md --force source build/ ../build",
     "collectstatic": "cd .. && python manage.py collectstatic --no-input"
   },
   "eslintConfig": {
