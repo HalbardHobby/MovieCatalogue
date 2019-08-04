@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Card from './chunks/Card';
+import Modal from './chunks/Modal';
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState([]);
@@ -22,7 +23,7 @@ const MovieList = (props) => {
   // update movies
   useEffect(() => {
     if (movies.length > 0) {
-      setCards(movies.map(movie => <Card image={movie.cover_art} title={movie.primary_title} key={movie.id} id={movie.id}/>));
+      setCards(movies.map(movie => <Card image={movie.cover_art} title={movie.primary_title} key={movie.id} id={movie.id} />));
     } else {
       setCards([]);
     }
@@ -33,6 +34,7 @@ const MovieList = (props) => {
       <div className="row">
         {cards}
       </div>
+      <Modal />
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Modal from './chunks/Modal';
 
 const MovieDetail = props => {
   const [movie, setMovie] = useState({});
 
-  // Fetch data on mount
+  // Fetch data on url change
   useEffect(() => {
     fetch('https://movie-catalogue-248623.appspot.com/api/movies/' + props.match.params.id + '/')
       .then(res => res.json())
@@ -13,7 +14,7 @@ const MovieDetail = props => {
 
   let genres;
   if (movie.genres) {
-    genres = movie.genres.map(g => <Link to={'/'+g} key={g}>{g}, </Link>);
+    genres = movie.genres.map(g => <Link to={'/' + g} key={g}>{g}, </Link>);
   }
 
   return (
@@ -39,6 +40,7 @@ const MovieDetail = props => {
           </p>
         </div>
       </div>
+      <Modal />
     </div>
   );
 }
