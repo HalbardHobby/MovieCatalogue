@@ -17,7 +17,17 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 
+# Import dependencies for REST API
+from rest_framework import routers, serializers, viewsets
+from catalogue.views import GenreViewSet, MovieViewSet
+
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register('movies', MovieViewSet)
+router.register('genres', GenreViewSet)
+
 urlpatterns = [
+    path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     
