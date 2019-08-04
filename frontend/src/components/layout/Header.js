@@ -34,10 +34,10 @@ const Header = props => {
 							</a>
 						</li>
 						<li><a data-target="loginModal" className="modal-trigger" >Login</a></li>
-						<LoginModal />
 					</ul>
 				</div>
 			</nav>
+			<LoginModal />
 		</div>
 	);
 }
