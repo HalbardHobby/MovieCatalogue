@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from './components/layout/Header';
 import MovieList from './components/content/MovieList';
+import MovieDetail from './components/content/MovieDetail';
 
 import 'materialize-css/dist/css/materialize.min.css';
 
@@ -9,7 +10,10 @@ function App() {
   return (
     <Router>
       <Header />
-      <Route path='/' component={MovieList}/>
+      <Switch>
+        <Route path='/detail/' component={MovieDetail} />
+        <Route path='/:genre' component={MovieList} />
+      </Switch>
     </Router>
   );
 }
