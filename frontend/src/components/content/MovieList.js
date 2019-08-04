@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import Card from './chunks/Card';
-import Modal from './chunks/Modal';
+import Card from '../chunks/Card';
+import Modal from '../chunks/Modal';
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState([]);
@@ -34,6 +34,14 @@ const MovieList = (props) => {
       <div className="row">
         {cards}
       </div>
+      <div className="fixed-action-btn">
+        <button
+          data-target="createModal"
+          className="btn-floating btn-large waves-effect waves-light modal-trigger red">
+          <i className="large material-icons">mode_edit</i>
+        </button>
+      </div>
+      <Modal modalId="createModal"/>
       <Modal />
     </div>
   );

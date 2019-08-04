@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import M from 'materialize-css';
+import Modal from '../chunks/Modal';
 
 const Header = props => {
 
@@ -32,10 +33,11 @@ const Header = props => {
 						<i className="material-icons right">arrow_drop_down</i>
 							</a>
 						</li>
-						<li><Link to='/login'>Login</Link></li>
+						<li><a data-target="loginModal" className="modal-trigger" >Login</a></li>
 					</ul>
 				</div>
 			</nav>
+			<Modal modalId="loginModal" />
 		</div>
 	);
 }
