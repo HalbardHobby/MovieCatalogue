@@ -19,7 +19,8 @@ from django.views.generic import TemplateView
 
 # Import dependencies for REST API
 from rest_framework import routers, serializers, viewsets
-from catalogue.views import GenreViewSet, MovieViewSet
+from rest_framework.authtoken import views
+from catalogue.views import GenreViewSet, MovieViewSet, sign_up
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
@@ -28,6 +29,8 @@ router.register('genres', GenreViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path('api/signup/', sign_up),
+    re_path(r'^api/login/', views.obtain_auth_token),
     path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     
