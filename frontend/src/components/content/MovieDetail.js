@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Modal from '../chunks/Modal';
+import EditEntryModal from '../layout/EditEntryModal';
 
 const MovieDetail = props => {
   const [movie, setMovie] = useState({});
@@ -40,15 +40,8 @@ const MovieDetail = props => {
           </p>
         </div>
       </div>
-      <div className="fixed-action-btn">
-        <button
-          data-target="editModal"
-          className="btn-floating btn-large waves-effect waves-light modal-trigger red">
-          <i className="large material-icons">mode_edit</i>
-        </button>
-      </div>
-      <Modal modalId="editModal"/>
-    </div>
+      <EditEntryModal />
+    </div >
   );
 }
 

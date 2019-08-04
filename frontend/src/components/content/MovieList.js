@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Card from '../chunks/Card';
-import Modal from '../chunks/Modal';
+import CreateEntryModal from '../layout/CreateEntryModal';
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState([]);
   const [cards, setCards] = useState([]);
+  const [genre, setGenre] = useState('');
 
   // Fetch data on mount
   useEffect(() => {
     if (props.match.params.genre) {
+      setGenre(props.match.params.genre);
       fetch('https://movie-catalogue-248623.appspot.com/api/genres/' + props.match.params.genre + '/')
         .then(res => res.json())
         .then(data => setMovies(data.movie_set))
     } else {
+      setGenre('');
       fetch('https://movie-catalogue-248623.appspot.com/api/movies/')
         .then(res => res.json())
         .then(data => setMovies(data))
@@ -29,20 +32,15 @@ const MovieList = (props) => {
     }
   }, [movies]);
 
+  let title = (genre != '')? <h4>Genre: {genre}</h4> : <h4>All Movies</h4>;
+
   return (
     <div className="container">
+      {title}
       <div className="row">
         {cards}
       </div>
-      <div className="fixed-action-btn">
-        <button
-          data-target="createModal"
-          className="btn-floating btn-large waves-effect waves-light modal-trigger red">
-          <i className="large material-icons">mode_edit</i>
-        </button>
-      </div>
-      <Modal modalId="createModal"/>
-      <Modal />
+      <CreateEntryModal />
     </div>
   );
 }
