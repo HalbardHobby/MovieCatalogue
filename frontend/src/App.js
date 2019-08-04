@@ -13,6 +13,7 @@ function App() {
       <Switch>
         <Route path='/detail/' component={MovieDetail} />
         <Route path='/:genre' component={MovieList} />
+        <Route exact path='/' component={MovieList} />
       </Switch>
     </Router>
   );
