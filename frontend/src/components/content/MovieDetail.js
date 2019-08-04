@@ -1,29 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-const MovieDetail = () => {
+const MovieDetail = props => {
+  const [movie, setMovie] = useState({});
+
+  // Fetch data on mount
+  useEffect(() => {
+    fetch('https://movie-catalogue-248623.appspot.com/api/movies/' + props.match.params.id + '/')
+      .then(res => res.json())
+      .then(data => setMovie(data))
+  }, [props.match]);
+
+  let genres;
+  if (movie.genres) {
+    genres = movie.genres.map(g => <Link to={'/'+g} key={g}>{g}, </Link>);
+  }
+
   return (
     <div className='container'>
-      <h3>Avengers: Endgame (2019)</h3>
+      <h3>{movie.primary_title} ({movie.year})</h3>
       <div className="row">
         <div className="col s12 m5 l4">
           <img
-            src='https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg'
+            src={movie.cover_art}
             alt='poster'
             style={{ width: '100%' }} />
         </div>
         <div className="container col s12 m7 l8" style={{ textAlign: 'justify', textJustify: 'inter-word' }}>
           <p className="flow-text">
-            Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.
+            {movie.synopsis}
           </p>
           <p className="flow-text">
-            <b>Director:</b> Anthony Russo, Joe Russo
+            <b>Runtime: </b> {movie.runtime_minutes} minutes.
           </p>
           <p className="flow-text">
             <b>Genres: </b>
-            <Link to='/action/'>Action, </Link>
-            <Link to='/sci-fi/'>Sci-Fi, </Link>
-            <Link to='/superhero/'>Superhero</Link>
+            {genres}
           </p>
         </div>
       </div>
