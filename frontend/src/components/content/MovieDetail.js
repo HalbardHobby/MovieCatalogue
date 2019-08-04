@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const MovieDetail = () => {
   return (
@@ -7,20 +7,20 @@ const MovieDetail = () => {
       <h3>Avengers: Endgame (2019)</h3>
       <div className="row">
         <div className="col s12 m5 l4">
-          <img 
+          <img
             src='https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg'
-            alt='poster' 
-            style={{width: '100%'}}/>
+            alt='poster'
+            style={{ width: '100%' }} />
         </div>
-        <div className="container col s12 m7 l8" style={{textAlign: 'justify', textJustify: 'inter-word'}}>
-          <p class="flow-text">
-          Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.
+        <div className="container col s12 m7 l8" style={{ textAlign: 'justify', textJustify: 'inter-word' }}>
+          <p className="flow-text">
+            Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.
           </p>
-          <p class="flow-text">
+          <p className="flow-text">
             <b>Director:</b> Anthony Russo, Joe Russo
           </p>
-          <p class="flow-text">
-            <b>Genres: </b> 
+          <p className="flow-text">
+            <b>Genres: </b>
             <Link to='/action/'>Action, </Link>
             <Link to='/sci-fi/'>Sci-Fi, </Link>
             <Link to='/superhero/'>Superhero</Link>
@@ -31,4 +31,4 @@ const MovieDetail = () => {
   );
 }
 
-export default MovieDetail;
+export default withRouter(MovieDetail);
